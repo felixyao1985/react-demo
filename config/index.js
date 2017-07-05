@@ -12,24 +12,26 @@ debug('Creating default configuration.');
 // 默认配置
 // ========================================================
 const config = {
-  env : process.env.NODE_ENV || 'development',
+  env : process.env.NODE_ENV || 'localhost',
   render : process.env.RENDER_TYPE || "client",
   
   // ----------------------------------
   // Project Structure
   // ----------------------------------
   path_base  : path.resolve(__dirname, '..'),
-  dir_client : 'src',
+  dir_client : 'resources',
   dir_dist   : 'dist',
   dir_server : 'server',
   dir_test   : 'tests',
+  dir_page   : 'page',
 
   // ----------------------------------
   // 服务器配置
   // ----------------------------------
-  server_host : localip, // use string 'localhost' to prevent exposure on local network
+  //server_host : localip, // use string 'localhost' to prevent exposure on local network
+  //server_port : process.env.PORT || 8080,
+  server_host : 'localhost', // use string 'localhost' to prevent exposure on local network
   server_port : process.env.PORT || 8080,
-
   // ----------------------------------
   // 编译器配置
   // ----------------------------------

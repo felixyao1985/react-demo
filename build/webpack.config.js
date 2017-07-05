@@ -26,7 +26,7 @@ const webpackConfig = {
 // ------------------------------------
 const APP_ENTRY_PATHS = [
   'babel-polyfill',
-  paths.client('client.js')
+  paths.client(config.dir_page,'client.js')
 ];
 
 webpackConfig.entry = {

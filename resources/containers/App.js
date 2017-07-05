@@ -5,7 +5,8 @@ class App extends BaseComponent {
   render() {
     let me = this;
     return (
-      <div>
+      <div>APP
+		
         { me.props.children }
       </div>
     )

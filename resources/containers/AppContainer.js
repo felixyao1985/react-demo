@@ -15,7 +15,7 @@ class AppContainer extends React.Component {
   render () {
     let me = this;
     const { history, routes, routerKey, store } = me.props;
-
+		console.log('AppContainer',me.props);
     return (
       <Provider store={ store }>
         <Router history={ history } children={ routes } key={ routerKey } />

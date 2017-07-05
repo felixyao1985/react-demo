@@ -1,16 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { match, browserHistory } from 'react-router'
-import createStore from './store'
-import ApiPromise from './utils/client/ApiPromise';
-import AppContainer from './containers/AppContainer'
-import rootRouter from './containers/rootRouter'
+import { match, hashHistory } from 'react-router'
+import createStore from '../store'
+import ApiPromise from '../utils/ApiPromise';
+import AppContainer from '../containers/AppContainer'
+import rootRouter from '../containers/rootRouter'
 
 // ======================================================
 // Init Customer Middleware: API Promise
 // ======================================================
 const api = new ApiPromise();
-const history = browserHistory;
+const history = hashHistory;
 
 // ========================================================
 // Store and History Instantiation
@@ -38,7 +38,9 @@ let render = (routerKey = null) => {
       console.log(error);
       return
     }
-
+	console.log('history',history);
+	console.log('routes',routes);
+	console.log('renderProps',renderProps);
     ReactDOM.render(
       <AppContainer
         {...renderProps}
@@ -55,6 +57,7 @@ let render = (routerKey = null) => {
 // Enable HMR and catch runtime errors in RedBox
 // This code is excluded from production bundle
 if (__DEV__ && module.hot) {
+	console.log('__DEV__',__DEV__);
   const renderApp = render;
   const renderError = (error) => {
     const RedBox = require('redbox-react');
@@ -70,7 +73,7 @@ if (__DEV__ && module.hot) {
     }
   };
 
-  module.hot.accept(['./containers/rootRouter'], () => render())
+  module.hot.accept(['../containers/rootRouter'], () => render())
 }
 
 // ========================================================

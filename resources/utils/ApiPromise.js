@@ -1,6 +1,5 @@
-import { SzLib } from '../../common'
-//import sagitta from './SagattaMock.js';
-import sagitta from '../../../sagitta/sagitta-client.js';
+import { SzLib } from '../common'
+import sagitta from './SagattaMock.js';
 
 export default class apiPromise {
   constructor() {

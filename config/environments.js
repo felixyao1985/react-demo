@@ -20,7 +20,13 @@ export default {
       }
     }
   }),
-
+  localhost: (config) => ({
+    compiler_public_path: '',
+    gzip : {
+      enabled: true,
+      threshold: '100kb'
+    }
+  }),
   // ======================================================
   // Overrides when NODE_ENV === 'production'
   // ======================================================

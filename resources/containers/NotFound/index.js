@@ -5,7 +5,7 @@ class NotFound extends BaseComponent {
 
   render() {
     return (
-      <div><h1>404 Page</h1></div>
+      <div><h1>404 Page Felix</h1></div>
     );
   }
 }
