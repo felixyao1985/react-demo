@@ -12,7 +12,7 @@ export default (store) => ({
 	  //注入 Reducer
       injectReducer(store, { key: 'base', reducer: require('../../store/base').default });
       injectReducer(store, { key: 'data', reducer: require('../../store/data').default });
-
+	  console.log('HOME injectReducer ');
       const Component = require('./index').default;
       cb(null, Component);
     }, 'home')

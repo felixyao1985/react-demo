@@ -4,9 +4,9 @@ import BaseComponent from './BaseComponent.js';
 class App extends BaseComponent {
   render() {
     let me = this;
+	
     return (
-      <div>APP
-		
+      <div>
         { me.props.children }
       </div>
     )

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import objectAssign from 'object-assign'
+import objectAssign from 'object-assign'  //是轻量级 React 类状态更新快捷方式
 import { SzLib, RcFormUtil } from '../../common'
 import BaseComponent from '../BaseComponent.js'
 

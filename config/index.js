@@ -37,7 +37,7 @@ const config = {
   // ----------------------------------
   compiler_html_filename   : 'index.html',
   compiler_css_modules     : true,
-  compiler_devtool         : 'source-map',
+  compiler_devtool         : 'eval-source-map',
   compiler_hash_type       : 'hash',
   compiler_fail_on_warning : false,
   compiler_quiet           : false,
@@ -71,17 +71,8 @@ const config = {
   ]
 };
 
-/************************************************
- -------------------------------------------------
-
- All Internal Configuration Below
- Edit at Your Own Risk
-
- -------------------------------------------------
- ************************************************/
-
 // ------------------------------------
-// Environment
+// 环境变量
 // ------------------------------------
 // N.B.: globals added here must _also_ be added to .eslintrc
 config.globals = {
@@ -96,7 +87,7 @@ config.globals = {
 };
 
 // ------------------------------------
-// Validate Vendor Dependencies
+// 验证Vendor的依赖性 是否都有安装
 // ------------------------------------
 const pkg = require('../package.json');
 
@@ -112,7 +103,7 @@ config.compiler_vendor = config.compiler_vendor
   });
 
 // ------------------------------------
-// Utilities
+// 公共配置 
 // ------------------------------------
 const resolve = path.resolve;
 const base = (...args) =>
@@ -125,7 +116,7 @@ config.utils_paths = {
 };
 
 // ========================================================
-// Environment Configuration
+// 引入 环境配置
 // ========================================================
 debug(`Looking for environment overrides for NODE_ENV "${config.env}".`);
 const environments = require('./environments').default;

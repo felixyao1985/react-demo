@@ -20,9 +20,9 @@ class HomeIndex extends BaseComponent {
 
   render() {
     let me = this;
+	console.log('HOMEINDEX render props ',me.props);
     const { actions, base: { i18n } } = me.props;
     const Text = i18n.App.Home;
-
     return (
       <div>
         <h1>{ Text.Title }</h1>

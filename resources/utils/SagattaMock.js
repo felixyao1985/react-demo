@@ -1,5 +1,5 @@
 "use strict";
-var domain = 'localhost:8080/mock';
+var domain = 'localhost/mock';
 
 class SagittaClient {
 

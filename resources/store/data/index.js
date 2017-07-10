@@ -17,7 +17,7 @@ export default function (state = initialState, action = {}) {
   const { response, extra } = action;
 
   let tmpDataDetail = state.dataDetail;
-
+  console.log('action',action);
   switch (action.type) {
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* DATE
