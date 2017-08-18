@@ -12,16 +12,32 @@ class ShowDataDetail extends BaseComponent {
 
   componentWillMount() {
     let me = this;
-    me.autoAddCount();
+    this.mounted = false;
   }
 
+  componentDidMount() {
+    this.mounted = true; //重置flag
+	this.autoAddCount();
+  }
+  componentWillUpdate() {
+    this.mounted = false; //重置flag
+  }
+  componentWillUnmount() {
+    this.mounted = false; //重置flag
+  }
+  componentDidUpdate() {
+    this.mounted = true; //重置flag
+  }
   autoAddCount() {
     let me = this;
     setTimeout(() => {
-      me.setState({
-        childCount: me.state.childCount + 1
-      });
-      me.autoAddCount();
+		if(me.mounted){
+		  me.setState({
+			childCount: me.state.childCount + 1
+		  });
+		  
+		}
+		me.autoAddCount();
     }, 1000)
   }
 

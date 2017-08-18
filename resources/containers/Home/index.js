@@ -27,7 +27,7 @@ class Home extends BaseComponent {
     if (SzLib.isEmpty(base.i18n)) {
       const { locale, i18n } = SzLib.loadLocale(base.locale);
       actions.setLanguage(locale, i18n);//设定数据
-	  console.log('HOME componentWillMount props ',me.props);
+	  //console.log('HOME componentWillMount props ',me.props);
     }
 	
   }
@@ -40,7 +40,7 @@ render中的setState是不会重新触发render的
 */
   render() {
     let me = this;
-	console.log('HOME render props ',me.props);
+	//console.log('HOME render props ',me.props);
     return (
       <div>
         <h1>React Kit 2</h1>

@@ -10,14 +10,19 @@ import { getDataDetail, addCount } from '../../store/data/actions'
 import ShowDataDetail from './components/ShowDataDetail'
 
 import './DataDetail.scss'
+import withLoading from '../../utils/decorators/withLoading'
 
 const images = {
   img: SzLib.loadImage(require('./assets/img.png'))
 };
 
+@withLoading(state => {
+  return state.loadEnd == false;
+})
 class DataDetail extends BaseComponent {
 
   static fetchData(params, query) {
+	//console.log("static",params);
     return [getDataDetail(params.id)];
   }
 
@@ -26,6 +31,7 @@ class DataDetail extends BaseComponent {
     this.state = {
       loadEnd: false
     }
+	//console.log("super",props);
   }
 
   //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
@@ -49,11 +55,13 @@ class DataDetail extends BaseComponent {
 
   refreshDataDetail(id) {
     let me = this;
+	//console.log("id",id);
     const { actions } = me.props;
     actions.getDataDetail(id)
       .then((res) => RcFormUtil.postPromiseHandler(
         res, null, null,
         () => {
+		  //console.log("actions","refreshDataDetail");
           me.setState(objectAssign({}, me.state, {
             loadEnd: true
           }));
@@ -74,7 +82,7 @@ class DataDetail extends BaseComponent {
     let me = this;
     const { base: { i18n }, data, params: { id }, actions } = me.props;
     const Text = i18n.App[me.getClassName()];
-
+	//console.log("me",me.getClassName());
     if (me.state.loadEnd === false || SzLib.isEmpty(data)) {
       return (
         <div>
@@ -100,6 +108,7 @@ class DataDetail extends BaseComponent {
     );
   }
 }
+
 
 export default connect(
   // bind state

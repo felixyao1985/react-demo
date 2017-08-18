@@ -38,9 +38,9 @@ let render = (routerKey = null) => {
       console.log(error);
       return
     }
-	console.log('history',history);
-	console.log('routes',routes);
-	console.log('renderProps',renderProps);
+	//console.log('history',history);
+	//console.log('routes',routes);
+	//console.log('renderProps',renderProps);
     ReactDOM.render(
       <AppContainer
         {...renderProps}

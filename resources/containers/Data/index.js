@@ -93,12 +93,23 @@ class Data extends BaseComponent {
   }
 }
 
-export default connect(
-  // bind state
-  (state) => ({
+const mapStateToProps = (state, ownProps) => {
+  console.log('ownProps',ownProps)
+  return {
     base: state.base,
     data: state.data
-  }),
+  }
+}
+
+export default connect(
+  // bind state
+  /*
+  (state,ownProps) => ({
+    base: state.base,
+    data: state.data
+  })
+  */
+  mapStateToProps,
   // bind dispatch action
   (dispatch) => ({
     actions: bindActionCreators({ getDataList }, dispatch)

@@ -1,6 +1,11 @@
 import { SzLib } from '../common'
 import sagitta from './SagattaMock.js';
-
+/*
+  加入了中间件,所有请求都会进入一下流程
+  Redux 目的是提供第三方插件的模式，改变action -> reducer 的过程。
+  变为 action -> middlewares -> reducer 。
+  自己在项目中使用它改变数据流，实现异步 action ；
+*/
 export default class apiPromise {
   constructor() {
     this.API = (api, params) => {
